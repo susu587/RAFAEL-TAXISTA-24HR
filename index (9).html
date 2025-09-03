@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Rafael Taxista 24h</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    header, footer {
+      background: black;
+      color: yellow;
+      padding: 15px;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #ffd700;
+      color: black;
+      text-decoration: none;
+      margin: 10px;
+      border-radius: 8px;
+    }
+
+    .icons {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .icons div {
+      text-align: center;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      margin: 10px;
+      width: 80%;
+      max-width: 400px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>RAFAEL TAXISTA 24h</h1>
+  <h3>Conforto, segurança e pontualidade até o seu destino</h3>
+</header>
+
+<div class="container">
+  <img class="car-img" src="8285b606-d672-4ff7-868c-d5a04acdead6.jpg" alt="Táxi disponível" width="300" />
+
+  <h2>📞 Contato Rápido</h2>
+  <p><strong>Telefone/WhatsApp:</strong> <a href="tel:+5514996643342">(14) 99664-3342</a></p>
+
+  <!-- Campo para digitar nome e destino -->
+  <h2>💬 Solicitar pelo WhatsApp</h2>
+  <input type="text" id="nome" placeholder="Seu nome">
+  <input type="text" id="partida" placeholder="Local de partida">
+  <input type="text" id="destino" placeholder="Destino">
+  <br>
+  <button class="btn" onclick="enviarWhatsApp()">Enviar pelo WhatsApp</button>
+
+  <h2>💻 Reserva Online</h2>
+  <p>Faça sua reserva agora mesmo clicando abaixo:</p>
+  <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeWGmZEYRNVld-aNk3AfyzFoRM1ExE716PJKMeZhBryFeIOpw/viewform?usp=header" target="_blank">Reservar Corrida</a>
+  <a class="btn" href="tel:+5514996643342">Ligar Agora</a>
+
+  <div class="icons">
+    <div>
+      <img src="https://img.icons8.com/color/96/000000/pix.png" alt="Pix" />
+      <p>Pagamento via Pix</p>
+    </div>
+    <div>
+      <img src="https://img.icons8.com/color/96/000000/bank-cards.png" alt="Cartão" />
+      <p>Débito e Crédito</p>
+    </div>
+    <div>
+      <img src="https://img.icons8.com/color/96/000000/receipt.png" alt="Recibos" />
+      <p>Recibos e Notas</p>
+    </div>
+  </div>
+</div>
+
+<!-- Botão flutuante WhatsApp -->
+<a class="whatsapp-float" href="https://wa.me/5514996643342" target="_blank">
+  <img src="https://img.icons8.com/color/96/000000/whatsapp.png" alt="WhatsApp" width="64" />
+</a>
+
+<footer>
+  <h3>Táxi disponível 24 horas por dia | Aceitamos Pix, Débito e Crédito | Emitimos recibos</h3>
+</footer>
+
+<!-- JAVASCRIPT -->
+<script>
+  function enviarWhatsApp() {
+    const nome = document.getElementById("nome").value.trim();
+    const partida = document.getElementById("partida").value.trim();
+    const destino = document.getElementById("destino").value.trim();
+
+    if (!nome || !partida || !destino) {
+      alert("Por favor, preencha todos os campos!");
+      return;
+    }
+
+    const mensagem = `Olá, gostaria de reservar uma corrida.
+📍 Local de partida: ${partida}
+🏁 Destino: ${destino}
+👤 Nome: ${nome}`;
+
+    const link = `https://wa.me/5514996643342?text=${encodeURIComponent(mensagem)}`;
+    window.open(link, "_blank");
+  }
+</script>
+
+</body>
+</html>
